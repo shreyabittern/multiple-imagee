@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+<% @post_attachments.each do |p| %>
+  <%= image_tag p.avatar_url %>
+ <% end %>
+<% if (@post.user_id.present?) && (@post.user_id == current_user.id) %>
+        <%= link_to 'Edit', edit_post_path(@post) %><% end %>
+|
+<%= link_to 'Back', posts_path %>
